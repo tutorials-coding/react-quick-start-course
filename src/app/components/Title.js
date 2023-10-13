@@ -1,10 +1,10 @@
 const Title = () => {
   return (
-    <header>
-      <div>
+    <header className="row">
+      <div className="col-5">
         <img src="./next.svg" alt="logo" />
       </div>
-      <div>Мой список чтения</div>
+      <div className="col-7">Мой список чтения</div>
     </header>
   );
 };
