@@ -8,6 +8,11 @@ const Title = () => {
       </div>
       <div className="col-7">
         <p className={styles.myText}>Мой список чтения</p>
+        <p style={{
+            fontSize: "18px",
+            color: "green",
+            fontWeight: 700
+        }}>Книги по программированию</p>
       </div>
     </header>
   );
