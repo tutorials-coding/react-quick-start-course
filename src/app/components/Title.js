@@ -1,5 +1,11 @@
 import styles from './Title.module.css';
 
+const textStyles = {
+  fontSize: "18px",
+  color: "green",
+  fontWeight: 700
+}
+
 const Title = () => {
   return (
     <header className="row">
@@ -8,11 +14,7 @@ const Title = () => {
       </div>
       <div className="col-7">
         <p className={styles.myText}>Мой список чтения</p>
-        <p style={{
-            fontSize: "18px",
-            color: "green",
-            fontWeight: 700
-        }}>Книги по программированию</p>
+        <p style={textStyles}>Книги по программированию</p>
       </div>
     </header>
   );
