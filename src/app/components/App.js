@@ -1,4 +1,4 @@
-import Title from './Title';
+import Title from './Title/Title';
 
 const App = () => {
   return <Title />;
