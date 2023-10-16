@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import BookItem from '../BookItem/BookItem';
 
 const textStyle = {
@@ -25,6 +28,20 @@ const readingList = [
 ];
 
 const ReadingList = () => {
+  const [books, setBooks] = useState(readingList);
+
+  const handleAdd = () => {
+    setBooks((currentBooks) => [
+      ...currentBooks,
+      {
+        id: 4,
+        title:
+          'Рефакторинг кода на JavaScript: улучшение проекта существующего кода',
+        author: 'Мартин Фаулер',
+      },
+    ]);
+  };
+
   return (
     <>
       <div className="row mb-2">
@@ -41,11 +58,14 @@ const ReadingList = () => {
         </thead>
 
         <tbody>
-          {readingList.map((item) => (
+          {books.map((item) => (
             <BookItem key={item.id} book={item} />
           ))}
         </tbody>
       </table>
+      <button className="btn btn-primary" onClick={handleAdd}>
+        Добавить
+      </button>
     </>
   );
 };
