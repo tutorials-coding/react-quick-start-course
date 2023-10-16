@@ -1,3 +1,5 @@
+import BookItem from '../BookItem/BookItem';
+
 const textStyle = {
   fontSize: '18px',
   color: 'gray',
@@ -29,7 +31,7 @@ const ReadingList = () => {
         <h3 style={textStyle}>Книги по программированию</h3>
       </div>
 
-      <table class="table table-hover">
+      <table className="table table-hover">
         <thead>
           <tr>
             <th>ID</th>
@@ -40,11 +42,7 @@ const ReadingList = () => {
 
         <tbody>
           {readingList.map((item) => (
-            <tr key={item.id}>
-              <td className="p-2">{item.id}</td>
-              <td className="p-2">{item.author}</td>
-              <td className="p-2">{item.title}</td>
-            </tr>
+            <BookItem key={item.id} book={item} />
           ))}
         </tbody>
       </table>
