@@ -19,7 +19,7 @@ const ReadingList = () => {
       setBooks(readingList);
     };
     fetchReadingList();
-  });
+  }, []);
 
   const handleAdd = () => {
     setBooks((currentBooks) => [
