@@ -25,10 +25,9 @@ const ReadingList = () => {
     setBooks((currentBooks) => [
       ...currentBooks,
       {
-        id: 4,
-        title:
-          'Рефакторинг кода на JavaScript: улучшение проекта существующего кода',
-        author: 'Мартин Фаулер',
+        id: 5,
+        title: 'Искусство программирования',
+        author: 'Дональд Кнут',
       },
     ]);
   };
