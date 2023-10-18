@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import BookItem from '../BookItem/BookItem';
 
 const textStyle = {
@@ -9,26 +9,17 @@ const textStyle = {
   fontWeight: 700,
 };
 
-const readingList = [
-  {
-    id: 1,
-    title: 'Чистый код: Создание, анализ и рефакторинг',
-    author: 'Роберт С. Мартин',
-  },
-  {
-    id: 2,
-    title: 'Карьера программиста',
-    author: 'Г. Лакман Макдауэлл',
-  },
-  {
-    id: 3,
-    title: 'Совершенный код',
-    author: 'Стив Макконнелл',
-  },
-];
-
 const ReadingList = () => {
-  const [books, setBooks] = useState(readingList);
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    const fetchReadingList = async () => {
+      const response = await fetch('/api/reading-list');
+      const readingList = await response.json();
+      setBooks(readingList);
+    };
+    fetchReadingList();
+  });
 
   const handleAdd = () => {
     setBooks((currentBooks) => [
