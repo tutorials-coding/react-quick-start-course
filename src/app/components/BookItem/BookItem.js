@@ -1,3 +1,5 @@
+import React from 'react';
+
 const BookItem = ({ book }) => {
   return (
     <tr>
@@ -7,5 +9,7 @@ const BookItem = ({ book }) => {
     </tr>
   );
 };
+
+export const BookItemMemoized = React.memo(BookItem);
 
 export default BookItem;
