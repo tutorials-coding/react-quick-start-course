@@ -44,6 +44,7 @@ const ReadingList = () => {
             <th>ID</th>
             <th>Автор</th>
             <th>Заголовок</th>
+            <th>Прочитано</th>
           </tr>
         </thead>
 
