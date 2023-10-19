@@ -9,7 +9,7 @@ const textStyle = {
   fontWeight: 700,
 };
 
-const ReadingList = () => {
+const ReadingList = ({ onSelectBook }) => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
@@ -50,7 +50,7 @@ const ReadingList = () => {
 
         <tbody>
           {books.map((item) => (
-            <BookItem key={item.id} book={item} />
+            <BookItem key={item.id} book={item} onSelectBook={onSelectBook} />
           ))}
         </tbody>
       </table>

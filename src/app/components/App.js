@@ -11,7 +11,11 @@ const App = () => {
   return (
     <>
       <Title>Мой список для чтения</Title>
-      {selectedBook ? <BookCard book={selectedBook} /> : <ReadingList />}
+      {selectedBook ? (
+        <BookCard book={selectedBook} />
+      ) : (
+        <ReadingList onSelectBook={setSelectedBook} />
+      )}
     </>
   );
 };

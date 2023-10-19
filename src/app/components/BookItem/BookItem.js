@@ -1,8 +1,8 @@
 import React from 'react';
 
-const BookItem = ({ book }) => {
+const BookItem = ({ book, onSelectBook }) => {
   return (
-    <tr>
+    <tr onClick={() => onSelectBook(book)}>
       <td className="p-2">{book.id}</td>
       <td className="p-2">{book.author}</td>
       <td className="p-2">{book.title}</td>
