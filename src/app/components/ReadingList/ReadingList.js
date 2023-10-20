@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import BookItem from '../BookItem/BookItem';
+import { useBooks } from '../../hooks/useBooks';
 
 const textStyle = {
   fontSize: '18px',
@@ -10,16 +10,7 @@ const textStyle = {
 };
 
 const ReadingList = ({ onSelectBook }) => {
-  const [books, setBooks] = useState([]);
-
-  useEffect(() => {
-    const fetchReadingList = async () => {
-      const response = await fetch('/api/reading-list');
-      const readingList = await response.json();
-      setBooks(readingList);
-    };
-    fetchReadingList();
-  }, []);
+  const { books, setBooks } = useBooks();
 
   const handleAdd = () => {
     setBooks((currentBooks) => [
