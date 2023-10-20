@@ -2,6 +2,8 @@
 
 import BookItem from '../BookItem/BookItem';
 import { useBooks } from '../../hooks/useBooks';
+import { loadingStatus } from '@/app/const/loading-status';
+import LoadingIndicator from '../LoadingIndicator/LoadingIndicator';
 
 const textStyle = {
   fontSize: '18px',
@@ -10,7 +12,11 @@ const textStyle = {
 };
 
 const ReadingList = ({ onSelectBook }) => {
-  const { books, setBooks } = useBooks();
+  const { books, setBooks, loadingState } = useBooks();
+
+  if (loadingState !== loadingStatus.loaded) {
+    return <LoadingIndicator loadingStatus={loadingState} />;
+  }
 
   const handleAdd = () => {
     setBooks((currentBooks) => [
