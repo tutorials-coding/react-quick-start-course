@@ -1,23 +1,17 @@
 import { useEffect, useState } from 'react';
-import { loadingStatus } from '../const/loading-status';
+import { useGetRequest } from './useGetRequest';
 
 export const useBooks = () => {
   const [books, setBooks] = useState([]);
-  const [loadingState, setLoadingState] = useState(loadingStatus.loading);
+  const { get, loadingState } = useGetRequest('/api/reading-list');
 
   useEffect(() => {
     const fetchReadingList = async () => {
-      try {
-        const response = await fetch('/api/reading-list');
-        const readingList = await response.json();
-        setBooks(readingList);
-        setLoadingState(loadingStatus.loaded);
-      } catch {
-        setLoadingState(loadingStatus.isError);
-      }
+      const readingList = await get();
+      setBooks(readingList);
     };
     fetchReadingList();
-  }, []);
+  }, [get]);
 
   return { books, setBooks, loadingState };
 };
