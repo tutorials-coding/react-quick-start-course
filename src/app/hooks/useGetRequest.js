@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { loadingStatus } from '../const/loading-status';
 
 export const useGetRequest = (url) => {
   const [loadingState, setLoadingState] = useState(loadingStatus.loading);
 
-  const get = async () => {
+  const get = useCallback(async () => {
     setLoadingState(loadingStatus.loading);
     try {
       const response = await fetch(url);
@@ -14,7 +14,7 @@ export const useGetRequest = (url) => {
     } catch {
       setLoadingState(loadingStatus.isError);
     }
-  };
+  }, [url]);
 
   return { get, loadingState };
 };
