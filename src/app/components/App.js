@@ -8,13 +8,18 @@ import BookCard from './BookCard/BookCard';
 const App = () => {
   const [selectedBook, setSelectedBook] = useState();
 
+  const handleSelectBook = (book) => {
+    // TODO: проверки объекта book
+    setSelectedBook(book);
+  };
+
   return (
     <>
       <Title>Мой список для чтения</Title>
       {selectedBook ? (
         <BookCard book={selectedBook} />
       ) : (
-        <ReadingList onSelectBook={setSelectedBook} />
+        <ReadingList onSelectBook={handleSelectBook} />
       )}
     </>
   );
