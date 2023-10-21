@@ -11,7 +11,7 @@ const textStyle = {
   fontWeight: 700,
 };
 
-const ReadingList = ({ onSelectBook }) => {
+const ReadingList = () => {
   const { books, setBooks, loadingState } = useBooks();
 
   if (loadingState !== loadingStatus.loaded) {
@@ -47,7 +47,7 @@ const ReadingList = ({ onSelectBook }) => {
 
         <tbody>
           {books.map((item) => (
-            <BookItem key={item.id} book={item} onSelectBook={onSelectBook} />
+            <BookItem key={item.id} book={item} />
           ))}
         </tbody>
       </table>
