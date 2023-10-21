@@ -1,4 +1,8 @@
-const BookCard = ({ book }) => {
+import { useContext } from 'react';
+import { navContext } from '../App';
+
+const BookCard = () => {
+  const { param: book } = useContext(navContext);
   return (
     <div className="row">
       <div className="col-6">

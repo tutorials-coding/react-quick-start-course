@@ -8,8 +8,8 @@ import { NavRouter } from './NavRouter/NavRouter';
 export const navContext = createContext(navValues.books);
 
 const App = () => {
-  const navigate = useCallback((to) => {
-    setNav((_nav) => ({ current: to, navigate: _nav.navigate }));
+  const navigate = useCallback((to, param) => {
+    setNav((_nav) => ({ ..._nav, current: to, param }));
   }, []);
 
   const [nav, setNav] = useState({ current: navValues.books, navigate });
