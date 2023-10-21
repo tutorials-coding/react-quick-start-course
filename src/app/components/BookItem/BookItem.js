@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { navContext } from '../App';
+import { navValues } from '@/app/const/nav-values';
 
 const BookItem = ({ book }) => {
+  const { navigate } = useContext(navContext);
   return (
-    <tr>
+    <tr onClick={() => navigate(navValues.book, book)}>
       <td className="p-2">{book.id}</td>
       <td className="p-2">{book.author}</td>
       <td className="p-2">{book.title}</td>
