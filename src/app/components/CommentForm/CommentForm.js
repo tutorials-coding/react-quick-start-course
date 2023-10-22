@@ -9,7 +9,7 @@ export const CommentForm = ({ onSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    onSubmit(comment);
+    onSubmit?.(comment);
   };
 
   const handleChange = (e) => {
@@ -22,7 +22,7 @@ export const CommentForm = ({ onSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-group">
-        <label for="commentText">Комментарий</label>
+        <label htmlFor="commentText">Комментарий</label>
         <textarea
           id="commentText"
           className="form-control"
@@ -33,7 +33,7 @@ export const CommentForm = ({ onSubmit }) => {
       </div>
 
       <div className="form-group">
-        <label for="commentUserName">Ваше имя</label>
+        <label htmlFor="commentUserName">Ваше имя</label>
         <input
           id="commentUserName"
           className="form-control"
