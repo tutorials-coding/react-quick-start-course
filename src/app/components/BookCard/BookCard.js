@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { navContext } from '../App';
+import { CommentList } from '../CommentList/CommentList';
 
 const BookCard = () => {
   const { param: book } = useContext(navContext);
@@ -28,6 +29,8 @@ const BookCard = () => {
           </div>
         </div>
       </div>
+
+      <CommentList bookId={book.id} />
     </>
   );
 };
