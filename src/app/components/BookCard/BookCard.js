@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { navContext } from '../App';
-import { CommentList } from '../CommentList/CommentList';
+import CommentsSection from '../CommentsSection/CommentsSection';
 
 const BookCard = () => {
   const { param: book } = useContext(navContext);
@@ -30,7 +30,7 @@ const BookCard = () => {
         </div>
       </div>
 
-      <CommentList bookId={book.id} />
+      <CommentsSection bookId={book.id} />
     </>
   );
 };
